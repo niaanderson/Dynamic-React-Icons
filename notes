@@ -1,0 +1,85 @@
+To use an icon you have been hard coding it into App.js or a particular page.
+
+To change an icon size you have been hard coding sizes then utilizing media queries to change those size based on the device.
+
+Ex:
+
+App.js:
+
+import App.css
+import { Home } from "./Home";
+
+function App{
+return(
+
+<div>
+<Home/>
+</div>
+)}
+
+export default App;
+
+App.css:
+
+div{
+width: 150px;
+height: 150px;
+}
+
+@media (max-width: 480px){
+div{
+width: 25px;
+height: 25px;
+}
+}
+
+Con: Isnt effective for high scale projects where constant changes are more common or when working on a team with other devlopers who will need to use your component in other areas of the project.
+
+Alternative: Create flexible icon components that will easily allow you to add, delete, or modify components anywhere in your project.
+
+Ex:
+
+Icon.js:
+
+import { Home } from "./Home";
+import { Buisness } from "./Buisness";
+
+const Icon = props => {
+switch (props.name.toLowerCase()) {
+case "home":
+return <Home {...props} />;
+case "buisness":
+return <Buisness {...props} />;
+default:
+return <div />;
+}
+};
+
+export { Icon };
+
+App.js:
+
+import {Icon} from './components/icon'
+
+function App{
+return(
+
+<div>
+<Icon name="home" width="300" height="300" />
+</div>
+)}
+
+export default App
+
+What I have learned creating dynamic icon componenets:
+
+Named Exports
+Switch
+Case
+SVG manipulation
+(
+className={className}
+width={width}
+height={height}
+)
+Fill: currentColor
