@@ -83,3 +83,8 @@ width={width}
 height={height}
 )
 Fill: currentColor
+
+Resources:
+https://www.borndigital.be/blog/a-step-by-step-guide-to-developing-a-flexible-icon-component
+https://www.youtube.com/watch?v=48kDgVYG3eg
+https://www.freecodecamp.org/news/difference-between-default-and-named-exports-in-javascript/
